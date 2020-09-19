@@ -1,0 +1,51 @@
+
+
+body {
+    background: url('../../images/home-bg.png');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* opacity:0.5; */
+    
+    
+  
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-color: rgba(0,0,0,0.25);
+}
+
+.locationInfo{
+    color: #fff;
+    margin-top: 100px;
+}
+
+.locationInfo h1{
+    font-family: 'Bebas Neue', 'cursive';
+    font-size: 100px;
+}
+
+.locationInfo p{
+    font-size: 20px;
+    /* font-family: 'Bebas Neue', 'cursive'; */
+    
+}
+
+.locationImg img{
+    height: 320px;
+    width: 200px;
+    margin: 10px;
+    
+}
+
+.locationImgName{
+    margin: 10px;
+    color: #fff;
+}
