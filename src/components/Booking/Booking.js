@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import './Booking.css';
+import { Link } from 'react-router-dom';
 
 
 const Booking = (props) => {
@@ -46,8 +47,12 @@ const Booking = (props) => {
                             </div>
                         </div>
 
-                        {/* <button className="btn btn-warning col-md-12" href="">Start Booking</button> */}
-                        <a href="/login" class="btn btn-warning col-md-12" role="button">Start Booking</a>
+
+                        {/* <a href="/login" class="btn btn-warning col-md-12" role="button">Start Booking</a> */}
+
+                        <Link to="/search">
+                            <button className="btn btn-warning col-md-12" href="">Start Booking</button>
+                        </Link>
                     </form>
                 </div>
 

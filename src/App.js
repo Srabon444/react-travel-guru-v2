@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createContext, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Header from './components/Header/Header';
@@ -14,14 +14,30 @@ import Booking from './components/Booking/Booking';
 import fakeData from './components/fakeData/fakeData';
 import Login from './components/Login/Login';
 import Registration from './components/Registration/Registration';
+import { Search } from 'react-bootstrap-icons';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+
+
+
+export const UserContext = createContext();
 
 function App() {
+
+  const [loggedInUser, setLoggedInUser] = useState({});
+
   return (
 
-    <Router>
-      <Header></Header>
-      <Switch>
 
+    <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
+
+      <Header></Header>
+
+      {/* <h1>Name: {loggedInUser.name}</h1> */}
+
+      <Router>
+
+        <Switch>
+          
         <Route path="/home">
           <Home></Home>
         </Route>
@@ -37,6 +53,10 @@ function App() {
         <Route path="/registration">
           <Registration></Registration>
         </Route>
+        
+          <PrivateRoute path="/search">
+            <Search />
+          </PrivateRoute>
 
         <Route exact path="/">
           <Home></Home>
@@ -48,6 +68,8 @@ function App() {
 
       </Switch>
     </Router >
+
+    </UserContext.Provider>
 
   );
 }

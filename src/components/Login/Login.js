@@ -1,7 +1,52 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Login.css';
 
+import * as firebase from "firebase/app";
+
+import "firebase/auth";
+import firebaseConfig from './firebase.config';
+import { UserContext } from '../../App';
+import { useHistory, useLocation } from 'react-router-dom';
+
 const Login = () => {
+
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+
+    const history = useHistory();
+    const location = useLocation()
+    const { from } = location.state || { from: { pathname: "/" } };
+
+    const handleGoogleSignIn = () => {
+
+        if (firebase.apps.length === 0) {
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+        }
+
+        //Google sign-in provider
+        var provider = new firebase.auth.GoogleAuthProvider();
+
+        //Authenticate with Firebase using the Google provider object.
+        firebase.auth().signInWithPopup(provider).then(function (result) {
+
+            var { displayName, email } = result.user;
+            const signnedInUser = { name: displayName, email }
+            setLoggedInUser(signnedInUser);
+            history.replace(from);
+
+        }).catch(function (error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // The email of the user's account used.
+            var email = error.email;
+            // The firebase.auth.AuthCredential type that was used.
+            var credential = error.credential;
+            // ...
+        });
+
+
+    }
 
     return (
         <div className="loginForm rounded">
@@ -44,7 +89,7 @@ const Login = () => {
                 <button className="btn btn-outline-primary col-md-12">Continue with Facebook</button>
                 <br />
                 <br />
-                <button className="btn btn-outline-success col-md-12">Continue with Google</button>
+                <button className="btn btn-outline-success col-md-12" onClick={handleGoogleSignIn}>Continue with Google</button>
             </div>
 
 

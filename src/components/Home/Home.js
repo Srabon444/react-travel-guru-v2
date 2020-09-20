@@ -18,7 +18,8 @@ const Home = (props) => {
     }
 
     return (
-        <div class="container">
+        <header>
+            <div class="container ">
             <div class="locationInfo row">
 
                 {/* Location details */}
@@ -36,11 +37,7 @@ const Home = (props) => {
                 {/* Location image */}
                 <div className="col-md-7  locationImg d-flex" >
                     {
-                        fakeData.map(
-                            info =>
-                                <img className=" locationImgName" onClick={() => handleClick(info)} src={info.image} key={info.id} alt="" />
-
-                        )
+                            fakeData.map(info => <img className=" locationImgName" onClick={() => handleClick(info)} src={info.image} key={info.id} alt="" />)
                     }
 
                 </div>
@@ -48,6 +45,7 @@ const Home = (props) => {
 
 
         </div>
+        </header>
     );
 };
 
