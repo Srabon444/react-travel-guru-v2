@@ -1,14 +1,22 @@
 import React, { useState } from 'react';
 import allHotel from '../fakeData/allHotels';
 import rating from '../../images/star-rating.png';
+import { useParams } from 'react-router-dom';
 
-const Search = () => {
+const Search = (props) => {
+
+    // const { id } = useParams();
+    // const { place } = props.hotel[id];
+
+    console.log('fakehotel place', props);
 
     const hotel = allHotel.slice(0, 3);
     const [hotels, setHotels] = useState(hotel);
 
     return (
         <div>
+
+
             <h1>This is hotel search page</h1>
             <h3><small>252 stays Apr 13-17 3 guests</small></h3>
             <h3>Stay in Cox’s Bazar</h3>

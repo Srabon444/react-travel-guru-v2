@@ -14,9 +14,10 @@ import Booking from './components/Booking/Booking';
 import fakeData from './components/fakeData/fakeData';
 import Login from './components/Login/Login';
 import Registration from './components/Registration/Registration';
-import { Search } from 'react-bootstrap-icons';
+// import { Search } from 'react-bootstrap-icons';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
-
+import Search from './components/Search/Search';
+import allHotel from './components/fakeData/allHotels';
 
 
 export const UserContext = createContext();
@@ -55,7 +56,7 @@ function App() {
         </Route>
         
           <PrivateRoute path="/search">
-            <Search />
+            <Search hotel={allHotel} />
           </PrivateRoute>
 
         <Route exact path="/">
