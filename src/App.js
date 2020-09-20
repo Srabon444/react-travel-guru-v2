@@ -10,6 +10,9 @@ import {
   Link
 } from "react-router-dom";
 import NoFound from './components/NoFound/NoFound';
+import Booking from './components/Booking/Booking';
+import fakeData from './components/fakeData/fakeData';
+import Login from './components/Login/Login';
 
 function App() {
   return (
@@ -19,8 +22,15 @@ function App() {
       <Switch>
 
         <Route path="/home">
-
           <Home></Home>
+        </Route>
+
+        <Route path="/booking/:id">
+          <Booking info={fakeData} />
+        </Route>
+
+        <Route path="/login">
+          <Login></Login>
         </Route>
 
         <Route exact path="/">
@@ -32,7 +42,7 @@ function App() {
         </Route>
 
       </Switch>
-    </Router>
+    </Router >
 
   );
 }
