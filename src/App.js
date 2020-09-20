@@ -13,6 +13,7 @@ import NoFound from './components/NoFound/NoFound';
 import Booking from './components/Booking/Booking';
 import fakeData from './components/fakeData/fakeData';
 import Login from './components/Login/Login';
+import Registration from './components/Registration/Registration';
 
 function App() {
   return (
@@ -31,6 +32,10 @@ function App() {
 
         <Route path="/login">
           <Login></Login>
+        </Route>
+
+        <Route path="/registration">
+          <Registration></Registration>
         </Route>
 
         <Route exact path="/">
