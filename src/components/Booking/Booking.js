@@ -9,9 +9,6 @@ const Booking = (props) => {
     const { id } = useParams();
     const { name, details } = props.info[id];
 
-
-
-
     return (
 
         <div class="container">
@@ -50,10 +47,12 @@ const Booking = (props) => {
 
                         {/* <a href="/login" class="btn btn-warning col-md-12" role="button">Start Booking</a> */}
 
-                        <Link to="/search">
+                        <Link to="/search" >
                             <button className="btn btn-warning col-md-12" href="">Start Booking</button>
                         </Link>
                     </form>
+
+
                 </div>
 
 

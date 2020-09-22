@@ -9,26 +9,24 @@ const { id, name, details, image } = fakeData;
 
 const Home = (props) => {
 
+    const [location, setLocation] = useState([]);
 
-    // const [place, setPlace] = useState([information]);
-    const [click, setClick] = useState([]);
-
-    const handleClick = (event) => {
-        setClick(event);
+    const handleLocation = (event) => {
+        setLocation(event);
     }
 
     return (
-        <header>
-            <div class="container ">
-            <div class="locationInfo row">
+
+        <div class="container">
+            <div class="locationInfo row " >
 
                 {/* Location details */}
-                <div className="col-md-5">
+                <div className="col-md-5 row">
 
-                    <h1 style={{ fontSize: '70px' }}> {click.name}</h1>
-                    <p style={{ fontSize: '20px', marginTop: '4px' }}>{click.details}</p>
-                    <Link to={"/booking/" + click.id}>
-                        <button className="btn btn-warning">Booking ></button>
+                    <h1> {location.name}</h1>
+                    <p>{location.details}</p>
+                    <Link to={"/booking/" + location.id}>
+                        <button className="btn btn-warning">Booking > </button>
                     </Link>
 
                 </div>
@@ -37,7 +35,8 @@ const Home = (props) => {
                 {/* Location image */}
                 <div className="col-md-7  locationImg d-flex" >
                     {
-                            fakeData.map(info => <img className=" locationImgName" onClick={() => handleClick(info)} src={info.image} key={info.id} alt="" />)
+                        fakeData.map(info =>
+                            <img className=" locationImgName" onLoad={() => handleLocation(info)} onClick={() => handleLocation(info)} src={info.image} key={info.id} alt="" />)
                     }
 
                 </div>
@@ -45,7 +44,7 @@ const Home = (props) => {
 
 
         </div>
-        </header>
+
     );
 };
 

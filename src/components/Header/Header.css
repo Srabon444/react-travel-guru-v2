@@ -15,7 +15,7 @@
     color: #fff;
 } */
 .navbar .navbar-nav .nav-item .nav-link:link, .navbar .navbar-nav .nav-item .nav-link:visited  {
-    color: black;
+    color: #fff;
     margin-right: 50px;
     font-weight: bold;
 }

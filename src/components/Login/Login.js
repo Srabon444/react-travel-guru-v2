@@ -48,8 +48,36 @@ const Login = () => {
 
     }
 
+    const handleFBLogin = () => {
+
+        if (firebase.apps.length === 0) {
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+        }
+
+        //Facebook sign-in provider
+        const fbProvider = new firebase.auth.FacebookAuthProvider();
+
+        firebase.auth().signInWithPopup(fbProvider).then(function (result) {
+            // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+            var token = result.credential.accessToken;
+            // The signed-in user info.
+            var user = result.user;
+            // ...
+        }).catch(function (error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // The email of the user's account used.
+            var email = error.email;
+            // The firebase.auth.AuthCredential type that was used.
+            var credential = error.credential;
+            // ...
+        });
+    }
+
     return (
-        <div className="loginForm rounded">
+        <div className="loginForm rounded mt-5">
 
             <form action="" className="">
                 <div className="form-group">
@@ -86,7 +114,7 @@ const Login = () => {
             </form>
 
             <div className="">
-                <button className="btn btn-outline-primary col-md-12">Continue with Facebook</button>
+                <button className="btn btn-outline-primary col-md-12" onClick={handleFBLogin}>Continue with Facebook</button>
                 <br />
                 <br />
                 <button className="btn btn-outline-success col-md-12" onClick={handleGoogleSignIn}>Continue with Google</button>

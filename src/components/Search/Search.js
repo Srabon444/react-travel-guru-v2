@@ -3,49 +3,55 @@ import allHotel from '../fakeData/allHotels';
 import rating from '../../images/star-rating.png';
 import { useParams } from 'react-router-dom';
 
-const Search = (props) => {
+const Search = () => {
 
     // const { id } = useParams();
     // const { place } = props.hotel[id];
 
-    console.log('fakehotel place', props);
+    // console.log('fakehotel place', props);
 
     const hotel = allHotel.slice(0, 3);
     const [hotels, setHotels] = useState(hotel);
 
     return (
-        <div>
+        <div className="container d-flex ">
 
+            <div className="m-5">
 
-            <h1>This is hotel search page</h1>
-            <h3><small>252 stays Apr 13-17 3 guests</small></h3>
-            <h3>Stay in Cox’s Bazar</h3>
-            <h4>Total hotels: {hotels.length}</h4>
+                <div className="text-white">
+                    <p>252 stays Apr 13-17 3 guests</p>
+                    <h4>Stay in Cox’s Bazar</h4>
+                    <h5>Total hotels: {hotels.length}</h5>
+                </div>
 
-            {
+                {
 
-                hotels.map(
-                    hotel =>
-
-                        <div class="card mb-3">
-                            <div class="row no-gutters">
-                                <div class="col-md-4">
-                                    <img src={hotel.image} class="card-img" alt="..." />
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title">{hotel.name}</h5>
-                                        <p class="card-text">{hotel.details}</p>
-                                        <p class="card-text">${hotel.price}/night</p>
-                                        <p class="card-text">4.5<img src={rating} alt="Rating" width="20px" /> {hotel.review}</p>
+                    hotels.map(hotel =>
+                            <div class="card mb-3">
+                                <div class="row no-gutters">
+                                    <div class="col-md-4">
+                                        <img src={hotel.image} class="card-img" alt="..." />
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">{hotel.name}</h5>
+                                            <p class="card-text">{hotel.details}</p>
+                                            <p class="card-text">${hotel.price}/night</p>
+                                            <p class="card-text">4.5<img src={rating} alt="Rating" width="20px" /> {hotel.review}</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                )
-            }
+                    )
+                }
 
+            </div >
+
+            <div className="m-5">
+                <h1>Google Maps</h1>
+                <img src="https://www.google.com/maps/d/u/0/thumbnail?mid=1jzQ0F21u1PJI_8BqWOAaSkFLHSM" alt="" />
+            </div>
         </div >
     );
 };

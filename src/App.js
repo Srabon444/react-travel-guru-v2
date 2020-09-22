@@ -22,15 +22,17 @@ import allHotel from './components/fakeData/allHotels';
 
 export const UserContext = createContext();
 
-function App() {
+function App(props) {
 
   const [loggedInUser, setLoggedInUser] = useState({});
+
+  console.log('app page props', props);
 
   return (
 
 
-    <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
-
+    <UserContext.Provider value={[loggedInUser, setLoggedInUser]} className="background">
+      
       <Header></Header>
 
       {/* <h1>Name: {loggedInUser.name}</h1> */}
@@ -56,7 +58,7 @@ function App() {
         </Route>
         
           <PrivateRoute path="/search">
-            <Search hotel={allHotel} />
+            <Search />
           </PrivateRoute>
 
         <Route exact path="/">
