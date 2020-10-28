@@ -3,7 +3,7 @@ var hotel = [
         id: 0,
         name: 'Laguna Beach Hotel',
         details: "Set in Cox's Bazar, Laguna Beach Hotel & Resort offers 3-star accommodation with a shared lounge, a garden and a terrace.",
-        image: 'https://cf.bstatic.com/images/hotel/max1024x768/268/268768828.jpg',
+        image: 'https://cf.bstatic.com/images/hotel/max1024x768/631/63135326.jpg',
         price: Math.floor(10 + Math.random() * 10),
         review: Math.floor(10 + Math.random() * 10),
         place: 'coxsBazar'

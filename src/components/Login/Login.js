@@ -10,6 +10,10 @@ import { useHistory, useLocation } from 'react-router-dom';
 
 const Login = () => {
 
+    const handlePopup = () => {
+        alert('This feature is temporarily unavailable\nYou Can Login with your Google or Facebook account');
+    }
+
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
     const history = useHistory();
@@ -96,15 +100,15 @@ const Login = () => {
                             <label class="form-check-label" for="exampleCheck1">Remember Me</label>
                         </div>
                         <div>
-                            <a href="#" className="text-warning">Forget Password</a>
+                            <a href="#" className="text-warning" onClick={handlePopup}>Forget Password</a>
                         </div>
                     </div>
                 </div>
 
-                <button className="btn btn-warning col-md-12">Login</button>
+                <button className="btn btn-warning col-md-12" onClick={handlePopup} >Login</button>
 
                 <div className="form-group">
-                    <p className="text-center">Don’t have an account? <a href="/registration" className="text-warning ">Create an account</a></p>
+                    <p className="text-center">Don’t have an account? <a href="" className="text-warning " onClick={handlePopup}>Create an account</a></p>
                 </div>
 
                 <hr />
@@ -114,10 +118,11 @@ const Login = () => {
             </form>
 
             <div className="">
-                <button className="btn btn-outline-primary col-md-12" onClick={handleFBLogin}>Continue with Facebook</button>
-                <br />
-                <br />
                 <button className="btn btn-outline-success col-md-12" onClick={handleGoogleSignIn}>Continue with Google</button>
+                <br />
+                <br />
+                <button className="btn btn-outline-primary col-md-12" onClick={handleFBLogin}>Continue with Facebook</button>
+
             </div>
 
 
